@@ -1,0 +1,57 @@
+<app-navi  [manager]="isManager"></app-navi>
+<br><br>
+<div class="container">
+    <div class="row gutters">
+        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="row gutters">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <h6 class="mb-2 text-primary">Personal Details</h6>
+                        </div>
+
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <p class="card-text">First Name: {{user.firstName}}</p>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <p class="card-text">Last Name: {{user.lastName}}</p>
+                        </div>
+                        
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <p class="card-text">Email: {{user.email}}</p> 
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <p class="card-text">Account type: {{status}}</p>                         
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" *ngIf="isManager==false">
+                            <p class="card-text">Account balance: ${{user.balance.toFixed(2)}}</p>                         
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" *ngIf="isManager==false" >
+                            <input type="number"  name="deposit" placeholder="Enter deposit amount" [(ngModel)]="deposit" required>
+                            <button (click)="depositBalance()">Deposit</button>                         
+                        </div>
+                        <div *ngIf = "hidden"><p>Deposit unsuccessful</p></div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+<div class="container" >
+    <h4>Reset password</h4>
+    <form>
+        <div class="form-group">
+          <label for="newPassword">New Password</label>
+          <input type="password" class="form-control" name="newPassword" style="width: 250px;" placeholder="Enter new password" [(ngModel)]="newPassword" required>
+          <label for="newPassword1">Renter New Password</label>
+          <input type="password" class="form-control" name="newPasswordVerify" style="width: 250px;" placeholder="Renter new password" [(ngModel)]="newPasswordVerify" required>
+        </div>
+        <button class="btn btn-dark" (click)="updatePassword()">Submit</button>
+        <div *ngIf = changeSuccessfully>Password update successuflly</div>
+        <div *ngIf = changeFailed>Password update failed</div>
+    </form>
+</div>
+
+

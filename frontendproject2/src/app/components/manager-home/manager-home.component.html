@@ -1,0 +1,22 @@
+<app-navi [manager]= true></app-navi>
+<br>
+<div class="container" >
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">    
+        <h5>Add product</h5>
+            <form>
+                <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" name="productName"class="form-control" [(ngModel)]="name" required>
+                <label>Unit price</label>
+                <input type="number" name="productPrice"step="0.01" class="form-control" [(ngModel)]="price" required>
+                </div>
+                <button class="btn btn-dark"  (click)="addNewProduct()">Submit</button>
+                <div *ngIf= hidden><p>Unsuccessful</p></div>
+            </form>
+        </div>
+    </div>
+
+<div class="container">
+  <app-manage-product *ngFor="let product of productListData" [productData]="product"></app-manage-product>
+</div>
+

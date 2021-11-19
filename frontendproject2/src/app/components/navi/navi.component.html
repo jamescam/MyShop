@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" >Welcome to My Shop!</a>
+
+    <div *ngIf = "manager == false"class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="products">Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="profile">Profile</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="history">History</a>
+        </li>
+        <li class="nav-item">
+          <button mat-raised-button color="warn" (click)="logoutUser()">Log out</button>
+        </li>
+      </ul>
+      <a routerLink="/cart"><button mat-raised-button><i class="material-icons">shopping_cart</i>Checkout</button></a>
+    </div>
+    <div *ngIf = "manager==true" class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="manager">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="profile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="customerlist">CustomerList</a>
+        </li>
+        <li class="nav-item">
+          <button mat-raised-button color="warn" (click)="logoutUser()">Log out</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+

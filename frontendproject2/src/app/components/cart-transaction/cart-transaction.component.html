@@ -1,0 +1,11 @@
+<br>
+<div class="card" style="width: 18rem;">
+    <div class="card-body" >
+        <h5 class="card-title">{{transactionData.product.productName}}</h5>
+        <h6>$ {{transactionData.product.productPrice}}</h6>
+        <h6>quantity: {{transactionData.quantity}}</h6>
+        <h6>total: ${{(transactionData.product.productPrice*transactionData.quantity).toFixed(2)}}</h6>
+        <button class="btn btn-dark" (click)="deleteTransaction()">Delete</button>
+        <br><br>
+    </div>
+</div>

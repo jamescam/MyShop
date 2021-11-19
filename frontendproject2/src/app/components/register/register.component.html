@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<div class="background">
+<div class="card">
+  <div class="card-body">
+    <div class="text-center">
+      <h3 class="text">Register:</h3>
+      <hr class="hr2">
+      </div>
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" id=InputFirstName name="firstname" [(ngModel)]="firstname" required>
+            <label class="example" for="InputFirstName">First Name</label>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id=InputLastName name="lastname" [(ngModel)]="lastname" required>
+            <label for="InputLastName">Last Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" id="exampleInputEmail1" name="email"  [(ngModel)]="email" required>
+            <label for="exampleInputEmail1">Email</label>
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="exampleInputPassword1" name ="Enter password" [(ngModel)]="password" required>
+            <label for="exampleInputPassword1">Password</label>
+          </div>
+          <button type="submit" class="btn btn-primary" (click)="registerUser()">Register</button>
+          <a class="btn btn-link" routerLink="/">cancel</a>
+          <div *ngIf ="hidden" ><p>Email has been taken!</p></div>
+          <div *ngIf ="missing" ><p>Missing information!</p></div>
+        </form>
+      </div>
+  </div>
+</div>

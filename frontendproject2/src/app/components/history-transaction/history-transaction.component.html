@@ -1,0 +1,35 @@
+<app-navi [manager]=false ></app-navi>
+
+
+<br> 
+<div class="container">
+  <h4>Transaction History</h4>
+  <div style=" height: 500px !important; overflow: scroll; ">
+      <table class="table table-striped">
+          <thead>
+              <tr>
+                  <th>Transaction Id</th>
+                  <th>Product Id</th>
+                  <th>Product Name</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Date</th>
+              </tr> 
+          </thead>
+             <tbody>
+              <tr *ngFor="let transaction of paidTransactionListData" >
+                  <td>{{transaction.transactionId}}</td>
+                  <td>{{transaction.product.productId}}</td>
+                  <td>{{transaction.product.productName}}</td>
+                  <td>${{transaction.product.productPrice.toFixed(2)}}</td>
+                  <td>{{transaction.quantity}}</td>
+                  <td>{{transaction.transactionDate}}</td>
+              </tr>   
+          </tbody> 
+        
+      </table>
+  </div>
+</div>
+  
+  <!-- <app-cart-transaction *ngFor="let paidTransaction of paidTransactionListData" [transactionData]="paidTransaction"></app-cart-transaction> -->
+

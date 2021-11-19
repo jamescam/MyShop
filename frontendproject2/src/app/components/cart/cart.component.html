@@ -1,0 +1,17 @@
+
+<app-navi [manager]=false></app-navi>
+<div class="container">
+  <br>
+  <h4>Account Balance: ${{balance.toFixed(2)}}</h4>
+  <button class="btn btn-dark" (click)="cashOut()">cash out</button>
+  
+  <div *ngIf = "failed"><br>No sufficient account balance</div>
+  <div *ngIf = "emptyCart"><br>Empity cart</div>
+  <br><br>
+  <div style=" height: 750px !important; overflow: scroll; ">
+  <app-cart-transaction *ngFor="let transaction of transactionListData" [transactionData]="transaction"></app-cart-transaction>
+</div>
+</div>
+
+
+  

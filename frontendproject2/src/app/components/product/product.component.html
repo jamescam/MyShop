@@ -1,0 +1,19 @@
+<app-navi></app-navi>
+
+<div class="row">
+  <div class="card col-6" *ngFor="let product of productListData">
+    <div class="card-header">
+      <img class="embed-responsive embed-responsive-21by9" src={{product.url}} alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{product.productName}}</h5>
+        <p class="card-text">{{product.productPrice}}</p>
+        <div class="card-content">
+          <input name="quantity" type="number" placeholder="0" min="0" (click)="onChange($event)">
+          <button mat-icon-button (click)="[productD(product), addProductToCart(product)]"><mat-icon>add_shopping_cart</mat-icon></button>
+          <div *ngIf ="product.hidden" ><p>Invalid quantity!</p></div>
+          <div *ngIf ="product.added" ><p>{{product.productName}} added</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
