@@ -1,0 +1,14 @@
+<br>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{productData.productName}}</h5>
+        <h6>$ {{productData.productPrice.toFixed(2)}}  / pound</h6>
+        <h6 hidden>{{productData.productId}}</h6>
+        
+        <input name="quantity" type="number" class="form-control" placeholder="Enter quantity" [(ngModel)]="quantity">
+        <br>
+        <button class="btn btn-dark" (click)="addProductToCart()">Add</button>
+        <div *ngIf ="hidden" ><p>Invalid quantity!</p></div>
+        <div *ngIf ="added" ><p>{{productData.productName}} added</p></div>
+    </div>
+</div>

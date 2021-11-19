@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" >Welcome to MyShop!</a>
+
+      <div *ngIf = "manager == false" class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="products">Product</a>
+          </li>
+          <li *ngIf = "customer == true" class="nav-item">
+            <a class="nav-link" href="profile">Profile</a>
+          </li>
+
+          <li *ngIf = "customer == false" class="nav-item">
+            <a class="nav-link" href="login">Log in</a>
+          </li>
+
+          <li *ngIf = "customer == true" class="nav-item">
+            <a class="nav-link" href="history">History</a>
+          </li>
+
+          <li *ngIf = "customer == true" class="nav-item">
+            <a class="nav-link" href="products" (click)="logoutUser()">Log out</a>
+          </li>
+        </ul>
+        <a routerLink="/cart"><button *ngIf = "customer == true" mat-raised-button><i class="material-icons"  matBadgePosition="below before">shopping_cart</i>Checkout</button></a>
+      </div>
+
+      <div *ngIf = "manager == true" class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="manager">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="customerlist">CustomerList</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="products" (click)="logoutUser()" >Log out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

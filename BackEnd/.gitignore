@@ -1,0 +1,6 @@
+.idea
+.settings
+*.iml
+/target
+/src/main/webapp/shopping-app/node_modules
+/test

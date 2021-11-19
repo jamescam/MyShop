@@ -1,0 +1,62 @@
+<app-navi [manager]=true></app-navi>
+<br>
+<div class="container">
+    <h4>Customers In System</h4>
+    <div style=" height: 500px !important; overflow: scroll; ">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>User Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Balance</th>
+                    <th>Transaction</th>
+                </tr> 
+            </thead>
+            <tbody  >
+                <tr *ngFor="let customer of customerListData">
+                    <td>{{customer.userId}}</td>
+                    <td>{{customer.firstName}}</td>
+                    <td>{{customer.lastName}}</td>
+                    <td>{{customer.email}}</td>
+                    <td>{{customer.balance.toFixed(2)}}</td>
+                    <td><button class="btn btn-dark" (click)="viewTransaction(customer.userId!)">view</button></td>
+                </tr>
+                
+            </tbody>          
+        </table>
+    </div>
+</div>
+<br><br>
+<div *ngIf=hidden>
+    <div class="container">
+        <h4>Transaction History for Customer Id :{{checkId}}</h4>
+        <div style=" height: 500px !important; overflow: scroll; ">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Transaction Id</th>
+                        <th>Product Id</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Transaction Date</th>
+                    </tr> 
+                </thead>
+                <tbody  >
+                    <tr *ngFor="let transaction of transactionListData">
+                        <td>{{transaction.transactionId}}</td>
+                        <td>{{transaction.product.productId}}</td>
+                        <td>{{transaction.product.productName}}</td>
+                        <td>{{transaction.product.productPrice.toFixed(2)}}</td>
+                        <td>{{transaction.quantity}}</td>
+                        <td>{{transaction.transactionDate}}</td>
+                    </tr>    
+                </tbody>          
+            </table>
+        </div>
+    </div>
+</div>
+
+
